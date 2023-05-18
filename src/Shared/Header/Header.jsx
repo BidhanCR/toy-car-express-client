@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  // user logout
   const handleLogOut = () => {
     logOut()
       .then()
@@ -41,12 +43,16 @@ const Header = () => {
             <li>
               <Link to="/blogs">All Toys</Link>
             </li>
-            <li>
-              <Link to="/">My Toys</Link>
-            </li>
-            <li>
-              <Link to="/blogs">Add A Toy</Link>
-            </li>
+            {user && (
+              <li>
+                <Link to="/">My Toys</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <Link to="/blogs">Add A Toy</Link>
+              </li>
+            )}
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
@@ -68,7 +74,8 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        
+        <p className="normal-case text-xl">ToyCarExpress</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -78,12 +85,16 @@ const Header = () => {
           <li>
             <Link to="/blogs">All Toys</Link>
           </li>
-          <li>
-            <Link to="/">My Toys</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Add A Toy</Link>
-          </li>
+          {user && (
+            <li>
+              <Link to="/">My Toys</Link>
+            </li>
+          )}
+          {user && (
+            <li>
+              <Link to="/blogs">Add A Toy</Link>
+            </li>
+          )}
           <li>
             <Link to="/blogs">Blogs</Link>
           </li>
