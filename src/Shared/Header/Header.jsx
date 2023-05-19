@@ -50,7 +50,7 @@ const Header = () => {
             )}
             {user && (
               <li>
-                <Link to="/blogs">Add A Toy</Link>
+                <Link to="/addToys">Add A Toy</Link>
               </li>
             )}
             <li>
@@ -92,7 +92,7 @@ const Header = () => {
           )}
           {user && (
             <li>
-              <Link to="/blogs">Add A Toy</Link>
+              <Link to="/addToys">Add A Toy</Link>
             </li>
           )}
           <li>
