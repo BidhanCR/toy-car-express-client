@@ -1,20 +1,26 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-    const {error, setError} = useState("");
-    const {success, setSuccess} = useState("");
-  const {createUser, logOut} = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { createUser } = useContext(AuthContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+ const from = location.state?.from || "/"; 
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
   const handleRegister = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -22,29 +28,45 @@ const Register = () => {
     const password = form.password.value;
 
     console.log(name, email, photo, password);
+    
+    // password validations 
+
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setError("Please add at least one uppercase letter.");
+      return;
+    } else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+      setError("Please add at least two numbers.");
+      return;
+    } else if (!/(?=.*[!@#$%^&*])/.test(password)) {
+      setError("Please add at least one special character.");
+      return;
+    } else if (password.length < 6) {
+      setError("Please add at least 6 characters in your password.");
+      return;
+    }
 
     createUser(email, password)
-    .then(result => {
+      .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
         setError("");
-        event.target.reset();
-        setSuccess("User has created successfully");
-        handleLogOut();
-        // sendVerificationEmail(result.user);
+        form.reset();
+        toast.success("User has created successfully");
         updateUserData(result.user, name, photo);
-    })
-    .catch(error => {
-        console.log(error)
-    })
-  };
+        navigate(from, { replace: true });
 
-  // handling user logout
-  const handleLogOut = () => {
-    logOut()
-      .then()
+      })
       .catch((error) => {
         console.log(error);
+        if (error.code === "auth/weak-password") {
+          setError("Please add at least 6 characters in your password");
+        } else if (error.code === "auth/email-already-in-use") {
+          setError("This email is already registered");
+        } else if (error.code === "auth/invalid-email") {
+          setError("Please enter a valid email address");
+        } else {
+          setError(error.message);
+        }
       });
   };
 
@@ -63,6 +85,7 @@ const Register = () => {
   };
   return (
     <div>
+      <ToastContainer />
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
@@ -134,11 +157,10 @@ const Register = () => {
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Register</button>
+                  <p className="text-error text-center mt-2">{error}</p>
                 </div>
               </div>
             </form>
-            <p>{error}</p>
-            <p>{success}</p>
           </div>
           <p className="text-bold text-xl">
             Already have an account?{" "}

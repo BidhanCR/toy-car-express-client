@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -22,7 +27,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        
+        navigate(from, { replace: true } );
       })
       .catch((error) => {
         console.log(error)
@@ -35,6 +40,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true } );
       })
       .catch((error) => {
         console.log("error", error.message);
@@ -46,6 +52,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true } );
       })
       .catch((error) => {
         console.log("error", error.message);
@@ -106,7 +113,7 @@ const Login = () => {
           </div>
           <p className="text-bold text-xl">
             New to here please{" "}
-            <Link className="btn-link" to="/register">
+            <Link state={{from}} className="btn-link" to="/register">
               Register
             </Link>
           </p>
