@@ -45,7 +45,7 @@ const Header = () => {
             </li>
             {user && (
               <li>
-                <Link to="/">My Toys</Link>
+                <Link to="/myToys">My Toys</Link>
               </li>
             )}
             {user && (
@@ -87,7 +87,7 @@ const Header = () => {
           </li>
           {user && (
             <li>
-              <Link to="/">My Toys</Link>
+              <Link to="/myToys">My Toys</Link>
             </li>
           )}
           {user && (
