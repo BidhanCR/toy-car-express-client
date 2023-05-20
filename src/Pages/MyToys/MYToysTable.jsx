@@ -31,7 +31,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your product has been deleted.", "success");
               const remaining = toys.filter((toy) => toy._id !== id);
               setToys(remaining);
             }

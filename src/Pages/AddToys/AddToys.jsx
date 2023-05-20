@@ -45,7 +45,7 @@ const AddToys = () => {
     })
   }
     return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-100">
         <div className="max-w-md mx-auto py-6">
       <form onSubmit={handleAddToy}>
         <div className="grid grid-cols-2 gap-4 mb-4">
@@ -58,8 +58,7 @@ const AddToys = () => {
               id="picture"
               name="picture"
               required
-              className="w-full px-4 py-2 rounded-md
-               focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500 bg-gray-100"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
 
@@ -72,7 +71,7 @@ const AddToys = () => {
               id="name"
               name="name"
               required
-              className="w-full px-4 py-2 rounded-md focus:outline-blue-500 focus:ring-blue-500 focus:border-blue-500 bg-gray-100"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
         </div>
@@ -86,7 +85,7 @@ const AddToys = () => {
               id="sellerName"
               name="sellerName"
               defaultValue={user?.displayName}
-              className="w-full px-4 py-2 rounded-md focus:outline-blue-500 border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
 
@@ -100,7 +99,7 @@ const AddToys = () => {
               name="sellerEmail"
               value={user?.email}
               readOnly
-              className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
         </div>
@@ -112,13 +111,13 @@ const AddToys = () => {
             <select
               id="subcategory"
               name="subcategory"
-              className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             >
               <option value="Super Cars Toys">Super Cars Toys</option>
               <option value="Regular Cars Toys">Regular Cars Toys</option>
               <option value="Truck Toys">Truck Toys</option>
               <option value="Mini Fire Truck">Mini Fire Truck</option>
-              <option value="Mini Polish Cars">Mini Polish Cars</option>
+              <option value="Mini Police Cars">Mini Police Cars</option>
             </select>
           </div>
 
@@ -131,7 +130,7 @@ const AddToys = () => {
               id="price"
               name="price"
               required
-              className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
         </div>
@@ -148,7 +147,7 @@ const AddToys = () => {
               min="0"
               max="5"
               step="0.1"
-              className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
           <div className="mb-4">
@@ -160,7 +159,7 @@ const AddToys = () => {
               id="quantity"
               name="quantity"
               min="1"
-              className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+              className="px-4 py-2 rounded-md input input-bordered input-success w-full"
             />
           </div>
         </div>
@@ -172,14 +171,14 @@ const AddToys = () => {
           <textarea
             id="description"
             name="description"
-            className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-100 focus:outline-blue-500"
+            className="px-4 py-2 rounded-md input input-bordered input-success w-full"
           ></textarea>
         </div>
 
         <div className="flex">
           <button
             type="submit"
-            className="px-4 py-2 w-full bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            className="px-4 py-2 w-full btn btn-outline btn-success rounded-md text-xl"
           >
             Add Toy
           </button>

@@ -92,7 +92,7 @@ const ToyDetail = () => {
         </div>
         <div className="ml-0 md:ml-4">
           <h3 className="text-3xl">Short description of product</h3>
-          <p className="text-xl mb-12">{description}</p>
+          <p className="mb-12">{description}</p>
           <p className="text-2xl">
             <span className="text-[#f85606]">Sold by:</span> {sellerName}
           </p>

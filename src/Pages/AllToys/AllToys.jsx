@@ -83,7 +83,7 @@ const AllToys = () => {
                 <td>{toy.quantity}</td>
                 <td>
                   <Link to={`/toy/${toy._id}`}>
-                    <button className="btn btn-primary">Details</button>
+                    <button className="btn btn-outline btn-success">Details</button>
                   </Link>
                 </td>
               </tr>
@@ -93,9 +93,11 @@ const AllToys = () => {
       </div>
 
       {!isAllLoaded && (
-        <button onClick={handleSeeAll} className="btn btn-primary">
+        <div className="flex justify-center">
+          <button onClick={handleSeeAll} className="btn btn-outline btn-success text-xl w-1/2 my-12">
           See All
         </button>
+        </div>
       )}
     </div>
   );

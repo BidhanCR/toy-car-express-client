@@ -37,6 +37,7 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <p className="flex justify-center">{user && <img className="w-12 h-12 rounded-full object-cover" src={user.photoURL} alt="User" title={user.displayName} /> }</p>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -74,7 +75,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        
+
         <p className="normal-case text-xl">ToyCarExpress</p>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -98,7 +99,10 @@ const Header = () => {
           <li>
             <Link to="/blogs">Blogs</Link>
           </li>
-          <li>
+
+          <>{user && <img className="w-12 h-12 rounded-full object-cover" src={user.photoURL} alt="User" title={user.displayName} /> }</>
+
+          <li className="ml-2">
             {user ? (
               <button
                 className="btn btn-success text-white hover:btn-accent"
@@ -118,6 +122,7 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <p>{moment().format("MMMM Do YYYY, h:mm:ss a")}</p>
+        
       </div>
     </div>
   );
