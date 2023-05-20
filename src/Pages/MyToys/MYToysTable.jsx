@@ -24,7 +24,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myToys/${id}`, {
+        fetch(`https://toy-car-express-server.vercel.app/myToys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -48,7 +48,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
       description: updatedDescription,
     };
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
+    fetch(`https://toy-car-express-server.vercel.app/updateToy/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
