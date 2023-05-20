@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const SuperCarToy = () => {
-  const [toys, setToys] = useState([]);
-  const subcategory = 'Super Cars Toys';
+const MiniPoliceCar = () => {
+    const [toys, setToys] = useState([]);
+  const subcategory = 'Mini Police Cars';
   useEffect(()=> {
-    fetch(`https://toy-car-express-server.vercel.app/superCar/${subcategory}`)
+    fetch(`https://toy-car-express-server.vercel.app/policeCar/${subcategory}`)
     .then(res=> res.json())
     .then(data =>{
         console.log(data)
         setToys(data)
     })
   }, [])
-
-  return (
-    <div className='p-12'>
+    return (
+        <div className='p-12'>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {toys.map((toy, index) => (
           <div className="rounded overflow-hidden relative" key={index}>
@@ -34,7 +33,7 @@ const SuperCarToy = () => {
         ))}
       </div>
     </div>
-  );
+    );
 };
 
-export default SuperCarToy;
+export default MiniPoliceCar;

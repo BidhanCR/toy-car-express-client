@@ -1,11 +1,13 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import SuperCarToy from "./SuperCarToy";
+import MiniFireTruck from "./MiniFireTruck";
+import MiniPoliceCar from "./MiniPoliceCar";
 
 const ToyByCategory = () => {
   return (
     <div className="my-16">
-    <h3 className="text-3xl text-center mb-8 font-bold">Toys By Category</h3>
+    <h3 className="text-3xl text-center mb-8 font-bold">Shop By Category</h3>
       <div className="flex justify-center">
       <Tabs onSelect={(index) => console.log(index)}>
         <TabList className="flex justify-center text-success">
@@ -18,10 +20,10 @@ const ToyByCategory = () => {
           <SuperCarToy></SuperCarToy>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <MiniFireTruck></MiniFireTruck>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+          <MiniPoliceCar></MiniPoliceCar>
         </TabPanel>
       </Tabs>
       </div>
