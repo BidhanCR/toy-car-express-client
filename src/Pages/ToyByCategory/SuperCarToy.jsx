@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SuperCarToy = () => {
   const [toys, setToys] = useState([]);
@@ -12,12 +14,15 @@ const SuperCarToy = () => {
         setToys(data)
     })
   }, [])
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <div className='p-12'>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {toys.map((toy, index) => (
-          <div className="rounded overflow-hidden relative" key={index}>
+          <div data-aos="flip-up" className="rounded overflow-hidden relative" key={index}>
             <img
               src={toy.picture}
               alt={toy.name}

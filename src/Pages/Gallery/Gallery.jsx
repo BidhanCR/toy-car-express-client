@@ -8,6 +8,8 @@ const Gallery = () => {
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
+
+  
   return (
     <section className="text-center mt-8">
       <div className="flex">

@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [isAllLoaded, setIsAllLoaded] = useState(false);
   const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  
   useEffect(() => {
     fetch(`https://toy-car-express-server.vercel.app/toys?limit=20`)
       .then((res) => res.json())
@@ -87,9 +93,9 @@ const AllToys = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody  >
             {toys.map((toy, index) => (
-              <tr key={toy._id} className="hover">
+              <tr data-aos="flip-up" key={toy._id} >
                 <th>{index + 1}</th>
                 <td>{toy.sellerName}</td>
                 <td>{toy.name}</td>

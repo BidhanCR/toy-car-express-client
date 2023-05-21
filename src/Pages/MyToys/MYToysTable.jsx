@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/Ri";
-// import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MYToysTable = ({ toy, index, toys, setToys }) => {
   const { _id, name, picture, price, quantity, rating } = toy;
@@ -86,9 +87,12 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
         console.error(error);
       });
   };
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
-    <tr>
+    <tr data-aos="flip-down">
       <th>{index + 1}</th>
       <td>
         <img className="w-12 h-12" src={picture} alt="toy" />
