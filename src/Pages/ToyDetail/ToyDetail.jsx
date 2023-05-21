@@ -45,7 +45,7 @@ const ToyDetail = () => {
       setIsLiked(true);
       const updatedLikedItems = [...likedItems, itemId];
       localStorage.setItem("likedItems", JSON.stringify(updatedLikedItems));
-      toast.success("favorited successfully");
+      toast.success("Item liked successfully");
     }
   };
 

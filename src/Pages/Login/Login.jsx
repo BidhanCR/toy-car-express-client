@@ -3,9 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext);
+
+  const [error, setError] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +22,7 @@ const Login = () => {
 
   const handleSignIn = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -27,10 +32,17 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        toast.success("user logged in successfully");
         navigate(from, { replace: true } );
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
+        if (error.code === "auth/wrong-password") {
+          setError("Your password is incorrect");
+        } else if (error.code === "auth/user-not-found") {
+          setError("user not found, please try again");
+        }
+        
       });
   };
 
@@ -60,6 +72,7 @@ const Login = () => {
   }
   return (
     <div>
+      <ToastContainer />
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
@@ -73,9 +86,10 @@ const Login = () => {
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="email"
+                    required
                     className="input input-bordered"
                   />
                 </div>
@@ -106,10 +120,10 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <button className="btn btn-primary">Login</button>
+                  <p className="text-error text-center mt-2">{error}</p>
                 </div>
               </div>
             </form>
-            {/* <p>{error}</p> */}
           </div>
           <p className="text-bold text-xl">
             New to here please{" "}

@@ -31,7 +31,11 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your product has been deleted.", "success");
+              Swal.fire(
+                "Deleted!",
+                "Your product has been deleted.",
+                "success"
+              );
               const remaining = toys.filter((toy) => toy._id !== id);
               setToys(remaining);
             }
@@ -39,7 +43,6 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
       }
     });
   };
-
 
   const handleUpdate = () => {
     const updatedData = {
@@ -57,14 +60,14 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data); 
-        if(data.modifiedCount>0){
+        console.log(data);
+        if (data.modifiedCount > 0) {
           Swal.fire({
-            title: 'Success!',
-            text: 'Product added successfully',
-            icon: 'success',
-            confirmButtonText: 'Success'
-          })
+            title: "Success!",
+            text: "Product added successfully",
+            icon: "success",
+            confirmButtonText: "Success",
+          });
           const updatedToy = {
             ...toy,
             price: updatedPrice,
@@ -88,7 +91,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
     <tr>
       <th>{index + 1}</th>
       <td>
-        <img className="w-12 h-12" src={picture} alt="toypic" />
+        <img className="w-12 h-12" src={picture} alt="toy" />
       </td>
       <td>{name}</td>
       <td className="text-[#f85606]">${price}</td>
@@ -105,8 +108,12 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-10">
           <div className="bg-gray-500 rounded-lg p-8 w-1/2">
-            <h2 className="text-2xl mb-8 text-center">Update Data</h2>
-            <h2 className="text-xl text-center">{name}</h2>
+            <h2 className="text-2xl mb-8 text-center text-success">
+              Update Data
+            </h2>
+            <h2 className="text-xl text-center">
+              Toy Name: <span className="text-success">{toy.name}</span>
+            </h2>
             <div className="mb-4">
               <label htmlFor="price" className="block mb-2 font-bold">
                 Price:
@@ -116,7 +123,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
                 id="price"
                 value={updatedPrice}
                 onChange={(e) => setUpdatedPrice(e.target.value)}
-                className="border border-gray-300 p-2 rounded w-full"
+                className="px-4 py-2 rounded-md input input-bordered input-success w-full"
               />
             </div>
             <div className="mb-4">
@@ -128,7 +135,7 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
                 id="quantity"
                 value={updatedQuantity}
                 onChange={(e) => setUpdatedQuantity(e.target.value)}
-                className="border border-gray-300 p-2 rounded w-full"
+                className="px-4 py-2 rounded-md input input-bordered input-success w-full"
               />
             </div>
             <div className="mb-4">
@@ -139,18 +146,18 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
                 id="description"
                 value={updatedDescription}
                 onChange={(e) => setUpdatedDescription(e.target.value)}
-                className="border border-gray-300 p-2 rounded w-full"
+                className="px-4 py-2 rounded-md input input-bordered input-success w-full"
               />
             </div>
             <div className="flex justify-end">
               <button
-                className="px-4 py-2 mr-2 bg-gray-500 text-white rounded"
+                className="px-4 py-2 mr-2 btn btn-outline btn-success rounded"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 btn btn-outline btn-success rounded"
                 onClick={handleUpdate}
               >
                 Update
@@ -164,4 +171,3 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
 };
 
 export default MYToysTable;
-

@@ -13,7 +13,7 @@ const AllToys = () => {
         setIsAllLoaded(false);
       });
   }, []);
-  
+
   const handleSeeAll = () => {
     fetch(`https://toy-car-express-server.vercel.app/toys`)
       .then((res) => res.json())
@@ -29,20 +29,30 @@ const AllToys = () => {
       .then((data) => {
         console.log(data);
         setToys(data);
+        setSearchText("");
       });
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
   return (
     <div>
+      <h2 className="text-center text-4xl my-8 text-success font-bold">All Toys</h2>
       <div className="flex justify-center my-6">
+        
         <div className="form-control">
           <div className="input-group">
             <input
+              value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               type="text"
+              onKeyDown={handleKeyDown}
               placeholder="Search…"
               className="input input-bordered"
             />
-            <button onClick={handleSearch} className="btn btn-square">
+            <button onClick={handleSearch} className="btn btn-square btn-success">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -83,7 +93,9 @@ const AllToys = () => {
                 <td>{toy.quantity}</td>
                 <td>
                   <Link to={`/toy/${toy._id}`}>
-                    <button className="btn btn-outline btn-success">Details</button>
+                    <button className="btn btn-outline btn-success">
+                      Details
+                    </button>
                   </Link>
                 </td>
               </tr>
@@ -94,9 +106,12 @@ const AllToys = () => {
 
       {!isAllLoaded && (
         <div className="flex justify-center">
-          <button onClick={handleSeeAll} className="btn btn-outline btn-success text-xl w-1/2 my-12">
-          See All
-        </button>
+          <button
+            onClick={handleSeeAll}
+            className="btn btn-outline btn-success text-xl w-1/2 my-12"
+          >
+            See All
+          </button>
         </div>
       )}
     </div>

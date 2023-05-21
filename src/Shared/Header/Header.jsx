@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const location = useLocation();
+  
   // user logout
   const handleLogOut = () => {
     logOut()
@@ -11,6 +12,9 @@ const Header = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+  const isActive = (path) => {
+    return location.pathname === path ? "text-success" : "";
   };
   return (
     <div className="navbar bg-base-100">
@@ -36,65 +40,49 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li className={`mx-2 ${isActive("/")}`}>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/blogs">All Toys</Link>
+            <li className={`mx-2 ${isActive("/allToys")}`}>
+              <Link to="/allToys">All Toys</Link>
             </li>
             {user && (
-              <li>
+              <li className={`mx-2 ${isActive("/myToys")}`}>
                 <Link to="/myToys">My Toys</Link>
               </li>
             )}
             {user && (
-              <li>
+              <li className={`mx-2 ${isActive("/addToys")}`}>
                 <Link to="/addToys">Add A Toy</Link>
               </li>
             )}
-            <li>
+            <li className={`mx-2 ${isActive("/blogs")}`}>
               <Link to="/blogs">Blogs</Link>
-            </li>
-            <li>
-              {user ? (
-                <button
-                  className="btn btn-success text-white hover:btn-accent"
-                  onClick={handleLogOut}
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link to="/login">
-                  <button className="btn btn-success text-white hover:btn-accent">
-                    Login
-                  </button>
-                </Link>
-              )}
             </li>
           </ul>
         </div>
-
-        <p className="normal-case text-xl">ToyCarExpress</p>
+         <img className="w-12 h-12" src="https://i.ibb.co/Kb6VQK1/logo.png" alt="" />
+        <p className="normal-case text-2xl text-success">ToyCarExpress</p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
+        <ul className="menu menu-horizontal px-1 text-xl">
+          <li className={`mx-2 ${isActive("/")}`}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className={`mx-2 ${isActive("/allToys")}`}>
             <Link to="/allToys">All Toys</Link>
           </li>
           {user && (
-            <li>
+            <li className={`mx-2 ${isActive("/myToys")}`}>
               <Link to="/myToys">My Toys</Link>
             </li>
           )}
           {user && (
-            <li>
+            <li className={`mx-2 ${isActive("/addToys")}`}>
               <Link to="/addToys">Add A Toy</Link>
             </li>
           )}
-          <li>
+          <li className={`mx-2 ${isActive("/blogs")}`}>
             <Link to="/blogs">Blogs</Link>
           </li>
         </ul>
