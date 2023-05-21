@@ -127,7 +127,7 @@ const AddToys = () => {
               Price:
             </label>
             <input
-              type="text"
+              type="number"
               id="price"
               name="price"
               required

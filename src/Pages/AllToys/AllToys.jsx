@@ -39,9 +39,10 @@ const AllToys = () => {
   };
   return (
     <div>
-      <h2 className="text-center text-4xl my-8 text-success font-bold">All Toys</h2>
+      <h2 className="text-center text-4xl my-8 text-success font-bold">
+        All Toys
+      </h2>
       <div className="flex justify-center my-6">
-        
         <div className="form-control">
           <div className="input-group">
             <input
@@ -52,7 +53,10 @@ const AllToys = () => {
               placeholder="Search…"
               className="input input-bordered"
             />
-            <button onClick={handleSearch} className="btn btn-square btn-success">
+            <button
+              onClick={handleSearch}
+              className="btn btn-square btn-success"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -89,7 +93,7 @@ const AllToys = () => {
                 <th>{index + 1}</th>
                 <td>{toy.sellerName}</td>
                 <td>{toy.name}</td>
-                <td>{toy.price}</td>
+                <td>${toy.price}</td>
                 <td>{toy.quantity}</td>
                 <td>
                   <Link to={`/toy/${toy._id}`}>
