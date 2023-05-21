@@ -5,10 +5,11 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hook/useTitle";
 
 const Login = () => {
   const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext);
-
+  useTitle('login')
   const [error, setError] = useState("");
 
   const location = useLocation();
@@ -76,7 +77,7 @@ const Login = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+            <h1 className="text-5xl font-bold  my-4">Login now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSignIn}>
@@ -90,7 +91,7 @@ const Login = () => {
                     name="email"
                     placeholder="email"
                     required
-                    className="input input-bordered"
+                    className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                   />
                 </div>
                 <div className="form-control">
@@ -102,7 +103,7 @@ const Login = () => {
                       type={passwordVisible ? "text" : "password"}
                       name="password"
                       placeholder="password"
-                      className="input input-bordered pr-10"
+                      className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                       required
                     />
                     <button
@@ -119,26 +120,26 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button className="px-4 py-2 w-full btn  btn-success rounded-md text-xl hover:btn-accent">Login</button>
                   <p className="text-error text-center mt-2">{error}</p>
                 </div>
               </div>
             </form>
           </div>
-          <p className="text-bold text-xl">
+          <p className="text-bold text-xl ">
             New to here please{" "}
-            <Link state={{from}} className="btn-link" to="/register">
+            <Link state={{from}} className="btn-link text-success" to="/register">
               Register
             </Link>
           </p>
-          <div className="divider bg-lime-600 rounded-md"></div>
+          <div className="divider bg-gray-500 rounded-md"></div>
           <div className="text-2xl font-bold">Login With Social Networks</div>
           <div>
-            <button onClick={signInWithGoogle} className=" btn btn-outline btn-primary">
+            <button onClick={signInWithGoogle} className=" btn btn-outline text-success hover:btn-accent">
               {" "}
               <FaGoogle className="mr-4 text-2xl" /> google
             </button>
-            <button onClick={signInWithGithub} className=" btn btn-outline btn-primary ml-4 ">
+            <button onClick={signInWithGithub} className=" btn btn-outline text-success ml-4 hover:btn-accent">
               <FaGithub  className="mr-4 text-2xl" /> Github
             </button>
           </div>

@@ -92,16 +92,16 @@ const MYToysTable = ({ toy, index, toys, setToys }) => {
   }, []);
 
   return (
-    <tr data-aos="flip-down">
-      <th>{index + 1}</th>
-      <td>
+    <tr >
+      <th data-aos="flip-down">{index + 1}</th>
+      <td data-aos="flip-down">
         <img className="w-12 h-12" src={picture} alt="toy" />
       </td>
-      <td>{name}</td>
-      <td className="text-[#f85606]">${price}</td>
-      <td>{quantity}</td>
-      <td>{rating}</td>
-      <td>
+      <td data-aos="flip-down">{name}</td>
+      <td data-aos="flip-down" className="text-[#f85606]">${price}</td>
+      <td data-aos="flip-down">{quantity}</td>
+      <td data-aos="flip-down">{rating}</td>
+      <td data-aos="flip-down">
         <button onClick={() => setIsModalOpen(true)}>
           <FaRegEdit className="inline-block text-2xl text-accent" />
         </button>

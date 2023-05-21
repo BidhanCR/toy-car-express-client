@@ -5,12 +5,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hook/useTitle";
 
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
-
+  useTitle('register')
   const location = useLocation();
   const navigate = useNavigate();
  const from = location.state?.from || "/"; 
@@ -103,7 +104,7 @@ const Register = () => {
                     name="name"
                     placeholder="name"
                     required
-                    className="input input-bordered"
+                    className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                   />
                 </div>
                 <div className="form-control">
@@ -115,7 +116,7 @@ const Register = () => {
                     name="email"
                     placeholder="email"
                     required
-                    className="input input-bordered"
+                    className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                   />
                 </div>
                 <div className="form-control">
@@ -127,7 +128,7 @@ const Register = () => {
                     name="photo"
                     placeholder="photo url"
                     required
-                    className="input input-bordered"
+                    className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                   />
                 </div>
                 <div className="form-control">
@@ -139,7 +140,7 @@ const Register = () => {
                       type={passwordVisible ? "text" : "password"}
                       name="password"
                       placeholder="password"
-                      className="input input-bordered pr-10"
+                      className="px-4 py-2 rounded-md input input-bordered input-success w-full"
                       required
                     />
                     <button
@@ -156,7 +157,7 @@ const Register = () => {
                   </div>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Register</button>
+                  <button className="px-4 py-2 w-full btn  btn-success rounded-md text-xl hover:btn-accent">Register</button>
                   <p className="text-error text-center mt-2">{error}</p>
                 </div>
               </div>
@@ -164,7 +165,7 @@ const Register = () => {
           </div>
           <p className="text-bold text-xl">
             Already have an account?{" "}
-            <Link className="btn-link" to="/register">
+            <Link className="btn-link text-success" to="/login">
               Log in
             </Link>
           </p>

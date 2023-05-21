@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MYToysTable from "./MYToysTable";
+import useTitle from "../../Hook/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,8 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user]);
+
+  useTitle('My Toys')
   return (
     <div>
       <h3 className="text-center text-4xl font-bold my-12 text-success">My Toys</h3>

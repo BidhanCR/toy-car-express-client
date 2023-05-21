@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useTitle from "../../Hook/useTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -10,7 +11,7 @@ const AllToys = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-  
+  useTitle('All Toys')
   useEffect(() => {
     fetch(`https://toy-car-express-server.vercel.app/toys?limit=20`)
       .then((res) => res.json())

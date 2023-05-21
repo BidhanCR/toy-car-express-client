@@ -5,8 +5,10 @@ import { BsShare, BsHeart, BsHeartFill } from "react-icons/Bs";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hook/useTitle";
 
 const ToyDetail = () => {
+  useTitle('Toy-Details')
   const toy = useLoaderData();
   const {
     _id,
@@ -89,6 +91,10 @@ const ToyDetail = () => {
           <p className="text-[#f85606] mb-4 text-2xl">Price: ${price}</p>
           <p className="mb-2 text-2xl">Subcategory: {subcategory}</p>
           <p className="mb-2 text-2xl">Available: {quantity} pcs</p>
+          <div className="mt-6">
+            <button className="btn bg-[#f85606] hover:bg-[#db6a07]">Save to cart</button>
+            <button className="btn btn-success ml-3 hover:btn-accent">Order Now</button>
+          </div>
         </div>
         <div className="ml-0 md:ml-4">
           <h3 className="text-3xl">Short description of product</h3>

@@ -30,7 +30,7 @@ const SuperCarToy = () => {
             />
             <div className="absolute bottom-0 right-0">
               <Link to={`/toy/${toy._id}`}>
-                <button className="btn btn-outline btn-success">Details</button>
+                <button className="btn btn-outline btn-success">Buy Now</button>
               </Link>
             </div>
             <p className=' text-xl text-success absolute bottom-0 left-0 p-3'>{toy.name}</p>

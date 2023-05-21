@@ -5,10 +5,14 @@ import Marquee from "react-fast-marquee";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import useTitle from "../../Hook/useTitle";
+import TopRatedToy from "../TopRatedToy/TopRatedToy";
 const Home = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  useTitle('Home')
   return (
     <div>
       <Banner></Banner>
@@ -17,6 +21,7 @@ const Home = () => {
         <Gallery></Gallery>
       </Marquee>
       <ToyByCategory></ToyByCategory>
+      <TopRatedToy></TopRatedToy>
     </div>
   );
 };

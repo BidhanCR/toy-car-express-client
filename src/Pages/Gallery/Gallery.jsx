@@ -25,6 +25,7 @@ const Gallery = () => {
                 <button className="btn btn-outline btn-success">Details</button>
               </Link>
             </div>
+            <p className="absolute bottom-0 left-0 p-2 font-bold">{toy.name}</p>
           </div>
         ))}
       </div>
