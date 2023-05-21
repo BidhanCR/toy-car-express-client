@@ -18,7 +18,7 @@ const MiniPoliceCar = () => {
     AOS.init();
   }, []);
     return (
-        <div className='p-12'>
+        <div className='py-6'>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {toys.map((toy, index) => (
           <div data-aos="flip-up" className="rounded overflow-hidden relative" key={index}>

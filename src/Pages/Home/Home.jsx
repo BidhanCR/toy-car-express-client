@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import useTitle from "../../Hook/useTitle";
 import TopRatedToy from "../TopRatedToy/TopRatedToy";
+import LatestToys from "../LatestToys/LatestToys";
 const Home = () => {
   useEffect(() => {
     AOS.init();
@@ -21,6 +22,7 @@ const Home = () => {
         <Gallery></Gallery>
       </Marquee>
       <ToyByCategory></ToyByCategory>
+      <LatestToys></LatestToys>
       <TopRatedToy></TopRatedToy>
     </div>
   );

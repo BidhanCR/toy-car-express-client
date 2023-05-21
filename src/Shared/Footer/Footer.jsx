@@ -32,14 +32,14 @@ const Footer = () => {
             designed specifically for children.
           </p>
           <div className="flex flex-col text-white">
-            <p className="text-white hover:text-blue-500 mr-2 flex items-center">
+            <p className="text-white hover:text-success mr-2 flex items-center">
               <FaLocationArrow className="mr-2" /> Address: 1800 Abbot Kinney
               Nebraska UK
             </p>
-            <p className="text-white hover:text-blue-500 mr-2 flex items-center">
-              <MdAlternateEmail className="mr-2" /> Email: info@example.com
+            <p className="text-white hover:text-success mr-2 flex items-center">
+              <MdAlternateEmail className="mr-2" /> Email: toycarexpress@gmail.com
             </p>
-            <p className="text-white hover:text-blue-500 mr-2 flex items-center">
+            <p className="text-white hover:text-success mr-2 flex items-center">
               <FiPhoneCall className="mr-2" /> Phone: (012) 345 6789
             </p>
           </div>
@@ -47,13 +47,13 @@ const Footer = () => {
         <div className="w-full lg:w-1/3 px-4 mb-4 md:mb-0">
           <h3 className="text-white text-lg mb-4">Quick Links</h3>
           <div className="flex flex-col">
-            <Link href="#" className="text-white hover:text-blue-500">
+            <Link href="#" className="text-white hover:text-success">
               Help Center
             </Link>
-            <Link href="#" className="text-white hover:text-blue-500">
+            <Link href="#" className="text-white hover:text-success">
               About us
             </Link>
-            <Link href="#" className="text-white hover:text-blue-500">
+            <Link href="#" className="text-white hover:text-success">
               Contact us
             </Link>
           </div>
@@ -63,19 +63,19 @@ const Footer = () => {
           <div className="flex flex-col">
             <Link
               href="#"
-              className="text-white hover:text-blue-500 mr-2 flex items-center"
+              className="text-white hover:text-success mr-2 flex items-center"
             >
               <FaFacebook className="mr-1" /> Facebook
             </Link>
             <Link
               href="#"
-              className="text-white hover:text-blue-500 mr-2 flex items-center"
+              className="text-white hover:text-success mr-2 flex items-center"
             >
               <FaTwitter className="mr-1" /> Twitter
             </Link>
             <Link
               href="#"
-              className="text-white hover:text-blue-500 flex items-center"
+              className="text-white hover:text-success flex items-center"
             >
               <FaInstagram className="mr-1" /> Instagram
             </Link>

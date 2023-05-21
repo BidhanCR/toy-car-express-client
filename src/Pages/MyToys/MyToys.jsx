@@ -18,7 +18,7 @@ const MyToys = () => {
   useTitle('My Toys')
   return (
     <div>
-      <h3 className="text-center text-4xl font-bold my-12 text-success">My Toys</h3>
+      <h3 className="text-center text-4xl font-bold mt-20 mb-12 text-success ">My Toys</h3>
       <div>
       </div>
       <div className="overflow-x-auto ">

@@ -13,7 +13,7 @@ const ToyByCategory = () => {
     AOS.init();
   }, []);
   return (
-    <div className="my-16">
+    <div className="my-16 container mx-auto">
     <h3 data-aos="flip-left" className="text-3xl text-center mb-8 font-bold">Shop By Category</h3>
       <div className="flex justify-center">
       <Tabs onSelect={(index) => console.log(index)}>

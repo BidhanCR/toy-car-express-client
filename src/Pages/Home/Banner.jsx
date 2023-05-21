@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -11,7 +12,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 
 const Banner = () => {
   return (
-    <div className="swiper-container">
+    <div className="swiper-container mt-16">
       <Swiper
         speed={1000}
         spaceBetween={30}
@@ -29,39 +30,53 @@ const Banner = () => {
         <SwiperSlide>
           <div className="relative h-[500px]">
             <img
-              src="https://media.istockphoto.com/id/1336889958/photo/classic-model-toy-car-on-white-background.jpg?b=1&s=170667a&w=0&k=20&c=D8rwhv8-ntojZLGPARPlhwlR7qtMNxOjTySntBrayo0="
+              src="https://i.ibb.co/h7N4kWX/istockphoto-1359811855-612x612.jpg"
               alt="Slide 1"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-              <h2 className="text-3xl font-bold">Slide 1 Title</h2>
-              <p></p>
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 p-12">
+              <p className="text-xl">Get ready for a thrilling ride into the world of car toys! Our car toy website is your one-stop destination for all things automotive fun. Experience the joy of speed and precision with our top-notch collection of cars, featuring iconic models from renowned brands. From classic vintage cars to modern supercars.</p>
+              <Link to="/allToys"><button className="btn btn-success">Explore</button></Link>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[500px]">
             <img
-              src="https://media.istockphoto.com/id/121666842/photo/blue-toy-car-trabant-isolated-on-white.jpg?s=612x612&w=is&k=20&c=svcZQRNsMjLiQUQlehdfqXJjvybCT7VNXMVgEavnmrk="
+              src="https://i.ibb.co/vHn9csg/istockphoto-646044526-612x612.jpg"
               alt="Slide 2"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-              <h2 className="text-3xl font-bold">Slide 2 Title</h2>
-              <p></p>
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 p-12">
+            <p className="text-xl">Get ready for a thrilling ride into the world of car toys! Our car toy website is your one-stop destination for all things automotive fun. Experience the joy of speed and precision with our top-notch collection of cars, featuring iconic models from renowned brands. From classic vintage cars to modern supercars.</p>
+            <Link to="/allToys"><button className="btn btn-success">Explore</button></Link>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[500px]">
             <img
-              src="https://media.istockphoto.com/id/680079488/photo/retro-car-orange-1960.jpg?b=1&s=170667a&w=0&k=20&c=XRq_2v2IXp6AONLJxddQtgvfh15mGNqgSZ3XyvjO_u4="
+              src="https://i.ibb.co/m6RcNgp/adorable-toddler-girl-playing-with-sand-sandbox-playground-157912-1823.jpg"
               alt="Slide 2"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-              <h2 className="text-3xl font-bold">Slide 3 Title</h2>
-              <p></p>
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 p-12">
+            <p className="text-xl">Get ready for a thrilling ride into the world of car toys! Our car toy website is your one-stop destination for all things automotive fun. Experience the joy of speed and precision with our top-notch collection of cars, featuring iconic models from renowned brands. From classic vintage cars to modern supercars.</p>
+            <Link to="/allToys"><button className="btn btn-success">Explore</button></Link>
+            
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="relative h-[500px]">
+            <img
+              src="https://i.ibb.co/fpYXm3g/one-cute-boy-playing-with-toy-car-outdoors-generated-by-ai-24640-89728.jpg"
+              alt="Slide 2"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 p-12">
+            <p className="text-xl">Get ready for a thrilling ride into the world of car toys! Our car toy website is your one-stop destination for all things automotive fun. Experience the joy of speed and precision with our top-notch collection of cars, featuring iconic models from renowned brands. From classic vintage cars to modern supercars.</p>
+            <Link to="/allToys"><button className="btn btn-success hover:btn-accent">Explore</button></Link>
             </div>
           </div>
         </SwiperSlide>

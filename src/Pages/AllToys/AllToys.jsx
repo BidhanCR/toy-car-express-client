@@ -45,7 +45,7 @@ const AllToys = () => {
     }
   };
   return (
-    <div>
+    <div className="mt-20">
       <h2 className="text-center text-4xl my-8 text-success font-bold">
         All Toys
       </h2>
@@ -87,7 +87,7 @@ const AllToys = () => {
           <thead>
             <tr>
               <th></th>
-              <th>Seller</th>
+              <th>Image</th>
               <th>Toy Name</th>
               <th>Price</th>
               <th>Available Quantity</th>
@@ -98,7 +98,7 @@ const AllToys = () => {
             {toys.map((toy, index) => (
               <tr data-aos="flip-up" key={toy._id} >
                 <th>{index + 1}</th>
-                <td>{toy.sellerName}</td>
+                <td><img className="w-16 h-16" src={toy.picture} alt="toy" /></td>
                 <td>{toy.name}</td>
                 <td>${toy.price}</td>
                 <td>{toy.quantity}</td>

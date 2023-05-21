@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 const TopRatedToy = () => {
   const [topRatedToy, setTopRatedToy] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/topRated")
+    fetch("https://toy-car-express-server.vercel.app/topRated")
       .then((res) => res.json())
       .then((data) => setTopRatedToy(data));
   }, []);
@@ -17,9 +17,9 @@ const TopRatedToy = () => {
   }, []);
 
   return (
-    <div>
-      <h4 data-aos="flip-left" className="text-center text-4xl mb-16">Recommended For You</h4>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="container mx-auto">
+      <h4 data-aos="flip-left" className=" text-3xl my-8 font-bold">Recommended For You</h4>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {topRatedToy.map((toy, index) => (
           <div data-aos="flip-up" className="rounded overflow-hidden relative" key={index}>
             <img
