@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const LatestToys = () => {
     const [latestToys, setLatestToys] = useState([])
@@ -23,8 +24,13 @@ const LatestToys = () => {
             <p className="badge badge-secondary absolute top-0 start-0 m-2">NEW</p>
             <h3 className="text-lg font-semibold mb-2">{toy.name}</h3>
             <p className="text-[#f85606]">${toy.price}</p>
-            <button className="btn btn-outline btn-success absolute bottom-0 right-0">View Detail</button>
+            <Link to={`/toy/${toy._id}`}>
+                    <button className="btn btn-outline btn-success absolute bottom-0 right-0">
+                      View Details
+                    </button>
+                  </Link>
           </div>
+          
         ))}
       </div>
     </div>
